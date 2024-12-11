@@ -1,7 +1,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-char file_name[] = "C:\\Users\\prana\\OneDrive\\Documents\\GitHub\\AOC-2K24\\Day1\\part1\\puzzleInput.txt";
+char file_name[] = "C:\\Users\\prana\\OneDrive\\Documents\\GitHub\\AOC-2K24\\Day1\\part2\\puzzleInput.txt";
 
 int main(){
 
@@ -47,7 +47,7 @@ int main(){
                 repetition_count++;
             }
         }
-        printf("Found %d repetition of %d \n", repetition_count, distance_left_list[i]);
+        //printf("Found %d repetition of %d \n", repetition_count, distance_left_list[i]);
         *(repetition_count_list + i) = repetition_count;
     }
 
