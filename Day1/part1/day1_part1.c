@@ -24,8 +24,10 @@ int main(){
 
     int counter = 0;
 
+    printf("Storing puzzle input in array.. \n");
+
     while(fscanf(ptr, "%d %d", &distance_left, &distance_right) == 2){
-        printf("%d %d \n",distance_left, distance_right);
+        //printf("%d %d \n",distance_left, distance_right);
 
         //printf("adding left distance to array... \n");
         *(distance_left_list + counter) = distance_left;
@@ -38,29 +40,29 @@ int main(){
 
     // Sorting puzzle inputs
 
-    printf("Printing elements in left distance array pre sort... \n");
-    for(int i = 0; i < counter; i++){
-        printf("%d \n", *(distance_left_list + i));
-    }
+    //printf("Printing elements in left distance array pre sort... \n");
+    //for(int i = 0; i < counter; i++){
+        //printf("%d \n", *(distance_left_list + i));
+    //}
 
     sort_ascending(distance_left_list, counter);
 
-    printf("Printing elements in left distance array post sort... \n");
-    for(int i = 0; i < counter; i++){
-        printf("%d \n", *(distance_left_list + i));
-    }
+    //printf("Printing elements in left distance array post sort... \n");
+    //for(int i = 0; i < counter; i++){
+        //printf("%d \n", *(distance_left_list + i));
+    //}
 
-    printf("Printing elements in right distance array pre sort... \n");
-    for(int i = 0; i < counter; i++){
-        printf("%d \n", *(distance_right_list + i));
-    }
+    //printf("Printing elements in right distance array pre sort... \n");
+    //for(int i = 0; i < counter; i++){
+        //printf("%d \n", *(distance_right_list + i));
+    //}
 
     sort_ascending(distance_right_list, counter);
 
-    printf("Printing elements in right distance array post sort... \n");
-    for(int i = 0; i < counter; i++){
-        printf("%d \n", *(distance_right_list + i));
-    }
+    //printf("Printing elements in right distance array post sort... \n");
+    //for(int i = 0; i < counter; i++){
+        //printf("%d \n", *(distance_right_list + i));
+    //}
 
     // Calculating total distance
 
@@ -92,7 +94,7 @@ void sort_ascending(int* array, int len){
 
                 sort_flag++;
 
-                printf("swapping... \n");
+                //printf("swapping... \n");
 
             }
 
