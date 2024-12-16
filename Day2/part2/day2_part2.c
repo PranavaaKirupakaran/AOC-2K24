@@ -101,9 +101,9 @@ bool checkReportSafetyMain(int* level_list, int level_count){
     for(int i = 0; i < level_count - 1; i++){
         int level_difference = level_list[i] - level_list[i + 1];
         if(abs(level_difference) > 3 || abs(level_difference) < 1){
-            int* removedLevelList1[10];
+            int removedLevelList1[10];
             removeLevel(level_list, level_count, i, removedLevelList1);
-            int* removedLevelList2[10];
+            int removedLevelList2[10];
             removeLevel(level_list, level_count, i + 1, removedLevelList2);
             if(checkReportSafety(removedLevelList1, level_count - 1)){
                 safe_flag = level_count;
@@ -119,11 +119,11 @@ bool checkReportSafetyMain(int* level_list, int level_count){
             int diff1 = level_list[i+ 1] - level_list[i];
             int diff2 = level_list[i+2] - level_list[i+1];
             if(diff1 * diff2 < 0){
-                int* removedLevelList1[10];
+                int removedLevelList1[10];
                 removeLevel(level_list, level_count,i, removedLevelList1);
-                int* removedLevelList2[10];
+                int removedLevelList2[10];
                 removeLevel(level_list, level_count,i + 1, removedLevelList2);
-                int* removedLevelList3[10];
+                int removedLevelList3[10];
                 removeLevel(level_list, level_count,i + 2, removedLevelList3);
                 if(checkReportSafety(removedLevelList1, level_count - 1)){
                     safe_flag = level_count;
