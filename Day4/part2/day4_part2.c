@@ -30,121 +30,41 @@ int main(){
         }
     }
 
+    //print_crossword_puzzle();
+
     for(int y = 0; y < y_length; y++){
         for(int x = 0; x < x_length; x++){
-            if(crossword_puzzle[y][x] == key_word[0]){
+            if(crossword_puzzle[y][x] == key_word[2]){
 
-                // FORWARD
-                bool forward_flag = true;
-                if(x + 3 < x_length){
-                    for(int x_offset = 1; x_offset < key_length; x_offset++){
-                        if(crossword_puzzle[y][x + x_offset] != key_word[x_offset]){
-                            forward_flag = false;
-                            break;
-                        }
+                if(x + 1 < x_length && x - 1 >= 0 && y - 1 >= 0 && y + 1 < y_length){
+                    int left_bar = 0;
+                    int right_bar = 0;
+
+                    if(crossword_puzzle[y-1][x-1] == key_word[1] && crossword_puzzle[y+1][x+1] == key_word[3]){
+                        left_bar++;
                     }
-                    if(forward_flag){
+                    else if(crossword_puzzle[y-1][x-1] == key_word[3] && crossword_puzzle[y+1][x+1] == key_word[1]){
+                        left_bar++;
+                    }
+                    else{
+
+                    }
+
+                    if(crossword_puzzle[y-1][x+1] == key_word[1] && crossword_puzzle[y+1][x-1] == key_word[3]){
+                        right_bar++;
+                    }
+                    else if(crossword_puzzle[y-1][x+1] == key_word[3] && crossword_puzzle[y+1][x-1] == key_word[1]){
+                        right_bar++;
+                    }
+                    else{
+
+                    }
+
+                    if(right_bar == 1 && left_bar == 1){
                         key_found_count++;
                     }
                 }
 
-                // BACKWARD
-                if(x - 3 >= 0){
-                    bool backward_flag = true;
-                    for(int x_offset = 1; x_offset < key_length; x_offset++){
-                        if(crossword_puzzle[y][x - x_offset] != key_word[x_offset]){
-                            backward_flag = false;
-                            break;
-                        }
-                    }
-                    if(backward_flag){
-                        key_found_count++;
-                    }   
-                }
-
-                // UPWARD
-                if(y - 3 >= 0){
-                    bool upward_flag = true;
-                    for(int y_offset = 1; y_offset < key_length; y_offset++){
-                        if(crossword_puzzle[y - y_offset][x] != key_word[y_offset]){
-                            upward_flag = false;
-                            break;
-                        }
-                    }
-                    if(upward_flag){
-                        key_found_count++;
-                    }
-                }
-
-                // DOWNWARD
-                if(y + 3 < y_length){
-                    bool downward_flag = true;
-                    for(int y_offset = 1; y_offset < key_length; y_offset++){
-                        if(crossword_puzzle[y + y_offset][x] != key_word[y_offset]){
-                            downward_flag = false;
-                            break;
-                        }
-                    }
-                    if(downward_flag){
-                        key_found_count++;
-                    }
-                }
-
-                // FORWARD UPWARD
-                bool forward_upward_flag = true;
-                if(x + 3 < x_length && y - 3 >= 0){
-                    for(int pos_offset = 1; pos_offset < key_length; pos_offset++){
-                        if(crossword_puzzle[y - pos_offset][x + pos_offset] != key_word[pos_offset]){
-                            forward_upward_flag = false;
-                            break;
-                        }
-                    }
-                    if(forward_upward_flag){
-                        key_found_count++;
-                    }
-                }
-
-                // FORWARD DOWNWARD
-                bool forward_downward_flag = true;
-                if(x + 3 < x_length && y + 3 < y_length){
-                    for(int pos_offset = 1; pos_offset < key_length; pos_offset++){
-                        if(crossword_puzzle[y + pos_offset][x + pos_offset] != key_word[pos_offset]){
-                            forward_downward_flag = false;
-                            break;
-                        }
-                    }
-                    if(forward_downward_flag){
-                        key_found_count++;
-                    }
-                }
-
-                // BACKWARD UPWARD
-                bool backward_upward_flag = true;
-                if(x - 3 >= 0 && y - 3 >= 0){
-                    for(int pos_offset = 1; pos_offset < key_length; pos_offset++){
-                        if(crossword_puzzle[y - pos_offset][x - pos_offset] != key_word[pos_offset]){
-                            backward_upward_flag = false;
-                            break;
-                        }
-                    }
-                    if(backward_upward_flag){
-                        key_found_count++;
-                    }
-                }
-
-                // BACKWARD DOWNWARD
-                bool backward_downward_flag = true;
-                if(x - 3 >= 0 && y + 3 < y_length){
-                    for(int pos_offset = 1; pos_offset < key_length; pos_offset++){
-                        if(crossword_puzzle[y + pos_offset][x - pos_offset] != key_word[pos_offset]){
-                            backward_downward_flag = false;
-                            break;
-                        }
-                    }
-                    if(backward_downward_flag){
-                        key_found_count++;
-                    }
-                }
             }
         }
     }
